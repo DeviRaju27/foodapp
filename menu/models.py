@@ -3,7 +3,7 @@ from django.db import models
 class Item(models.Model):
 
     def __str__(self):
-        return f"{self.item_name}"
+        return f"{self.item_name}: {self.item_desc} :${self.item_price}"
     
     item_name = models.CharField(max_length=200)
     item_desc = models.CharField(max_length=200)
