@@ -4,7 +4,10 @@ from .models import Item
 
 def index(request):
     items = Item.objects.all()
-    return HttpResponse(items)
+    context = {
+        "items" : items,
+    }
+    return render(request,"menu/index.html", context)
     
 
 def item(request):
