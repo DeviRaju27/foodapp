@@ -6,13 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    {% for item in items %}
-        <ul>
-            <li>
-                <a href = "{% url 'detail' item.id %}">{{ item.item_name }}</a>
-            </li>
-        </ul>
-        
-    {% endfor %}
+    {{item}}
 </body>
 </html>
