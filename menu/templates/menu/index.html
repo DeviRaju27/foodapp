@@ -1,15 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href = "{% static 'menu/style.css' %}">
     <title>Document</title>
 </head>
 <body>
     {% for item in items %}
         <ul>
             <li>
-                <a href = "{% url 'detail' item.id %}">{{ item.item_name }}</a>
+                <a href = "{% url 'food:detail' item.id %}">{{ item.item_name }}</a>
             </li>
         </ul>
         
