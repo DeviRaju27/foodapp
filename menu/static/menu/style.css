@@ -3,6 +3,6 @@ li a{
     color: rgb(225, 0, 255);
 }
 
-.navbar .nav-link {
-    color: red;
+.navbar .nav-link{
+    color: aliceblue !important;
 }
