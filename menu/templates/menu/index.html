@@ -14,15 +14,12 @@
             <img class = "card img-thumbnail" src="{{ item.item_image }}"/>
         </div>
         <div class = "col-md-4">
-            <h3>
-                {{ item.item_name }}
-            </h3>
-            <h4>
-                {{ item.item_desc }}
-            </h4>
+            <h3>{{ item.item_name }}</h3>
+            <h4>{{ item.item_desc }}</h4>
+            <h5>{{ item.item_price }}</h5>
         </div>
         <div class = "col-md-2">
-            <h4>{{ item.item_price }}</h4>
+            <a class = 'btn btn-success' href = "{% url 'food:detail' item.id %}">View</a>
         </div>
     </div>
     {% endfor %}
