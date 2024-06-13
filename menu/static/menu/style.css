@@ -6,3 +6,6 @@ li a{
 .navbar .nav-link{
     color: aliceblue !important;
 }
+.img-thumbnail{
+    height: 150px;
+}

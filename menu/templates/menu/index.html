@@ -9,12 +9,22 @@
 <body>
     {% block body %}
     {% for item in items %}
-        <ul>
-            <li>
-                <a href = "{% url 'food:detail' item.id %}">{{ item.item_name }}</a>
-            </li>
-        </ul>
-        
+    <div class = "row">
+        <div class = "col-md-4 offset-md-1">
+            <img class = "card img-thumbnail" src="{{ item.item_image }}"/>
+        </div>
+        <div class = "col-md-4">
+            <h3>
+                {{ item.item_name }}
+            </h3>
+            <h4>
+                {{ item.item_desc }}
+            </h4>
+        </div>
+        <div class = "col-md-2">
+            <h4>{{ item.item_price }}</h4>
+        </div>
+    </div>
     {% endfor %}
     {% endblock %}
 </body>
