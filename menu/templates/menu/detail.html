@@ -1,14 +1,16 @@
 {% extends 'menu/base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
     {% block body %}
-    {{item}}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img class="card img-thumbnail" src="{{ item.item_image }}"/>
+            </div>
+            <div class="col-md-4">
+                <h2>{{ item.item_name }}</h2>
+                <h4>{{ item.item_desc }}</h4>
+               <h3>$ {{ item.item_price }}</h3>
+            </div>
+        </div>
+    </div>
     {% endblock %}
-</body>
-</html>
