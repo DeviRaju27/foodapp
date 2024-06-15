@@ -28,3 +28,18 @@ def add_item(request):
 
     return render(request, "menu/form.html", {'form': form_obj})
 
+def update_item(request, id):
+    item_id = Item.objects.get(id = id)
+    form_obj = ItemForm(request.POST or None, instance= item_id)
+
+    if form_obj.is_valid():
+        form_obj.save()
+        return redirect('food:index')
+    
+    context = {
+        "id" : item_id,
+        "form": form_obj
+    }
+    
+    return render(request, "menu/form.html", context )
+

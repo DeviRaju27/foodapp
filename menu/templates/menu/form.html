@@ -1,5 +1,9 @@
+{% extends 'menu/base.html' %}
+
+    {% block body %}
 <form class="" method = "POST">
     {% csrf_token %}
     {{ form }}
     <button class="btn-success" type="submit" >save</button>
 </form>
+{% endblock %}
