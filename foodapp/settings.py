@@ -127,3 +127,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #Changing default login redirect to Index page
 
 LOGIN_REDIRECT_URL = 'food:index'
+LOGIN_URL = 'login'
