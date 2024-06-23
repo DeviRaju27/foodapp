@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Item
 from .forms import ItemForm
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 
 
 class IndexClassView(ListView):
@@ -10,13 +11,10 @@ class IndexClassView(ListView):
     template_name = 'menu/index.html'
     context_object_name = 'items'
 
-def detail(request, item_id):
-    item = Item.objects.get(pk=item_id)
-    context = {
-        "item" : item,
-    }
-    return render(request, "menu/detail.html", context)
-    
+class DetailView(DetailView):
+    model = Item
+    template_name = 'menu/detail.html'
+
 def add_item(request):
 
     form_obj = ItemForm(request.POST or None)
