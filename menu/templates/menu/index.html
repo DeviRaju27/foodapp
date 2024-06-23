@@ -9,9 +9,10 @@
         <div class = "col-md-4">
             <h3>{{ item.item_name }}</h3>
             <h5>{{ item.item_price }}</h5>
+            <h6>{{ item.user_name }}</h6>
         </div>
         <div class = "col-md-2">
-            <a class = 'btn btn-success' href = "{% url 'food:detail' item.id %}">View</a>
+            <a class = 'btn btn-success' href = "{% url 'menu:detail' item.id %}">View</a>
         </div>
     </div>
     {% endfor %}

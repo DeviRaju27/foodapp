@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class Item(models.Model):
 
@@ -11,3 +12,6 @@ class Item(models.Model):
     item_desc = models.CharField(max_length=200)
     item_price = models.IntegerField()
     item_image = models.CharField(max_length=200, default = "https://fakeimg.pl/600x400")
+
+    def get_absolute_url(self):
+        return reverse('menu:detail', kwargs={ 'pk' : self.pk })

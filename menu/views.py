@@ -4,6 +4,7 @@ from .models import Item
 from .forms import ItemForm
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
 
 
 class IndexClassView(ListView):
@@ -13,17 +14,19 @@ class IndexClassView(ListView):
 
 class DetailView(DetailView):
     model = Item
-    template_name = 'menu/detail.html'
+    template_name = 'menu/detail.html'   
 
-def add_item(request):
+class CreateItem(CreateView):
+    
+    model = Item
+    fields = ['item_name', 'item_desc', 'item_price', 'item_image']
+    template_name = "menu/form.html"
 
-    form_obj = ItemForm(request.POST or None)
+    def form_valid(self, form):
+        form.instance.user_name = self.request.user
+    
+        return super().form_valid(form)
 
-    if form_obj.is_valid():
-        form_obj.save()
-        return redirect('food:index')
-
-    return render(request, "menu/form.html", {'form': form_obj})
 
 def update_item(request, id):
     item_id = Item.objects.get(id = id)
@@ -31,7 +34,7 @@ def update_item(request, id):
 
     if form_obj.is_valid():
         form_obj.save()
-        return redirect('food:index')
+        return redirect('menu:index')
     
     context = {
         "id" : item_id,
@@ -49,7 +52,7 @@ def delete_item(request, id):
 
     if request.method == 'POST':
         item.delete()
-        return redirect('food:index')
+        return redirect('menu:index')
     
     return render(request, "menu/delete-item.html", context)
 
