@@ -9,3 +9,12 @@ li a{
 .img-thumbnail{
     height: 150px;
 }
+.margin-10 {
+    margin: 10px;
+}
+.margin-top-10 {
+    margin-top: 10px;
+}
+.center {
+    text-align: center;
+}
