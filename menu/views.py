@@ -2,14 +2,13 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Item
 from .forms import ItemForm
+from django.views.generic.list import ListView
 
-def index(request):
-    items = Item.objects.all()
-    context = {
-        "items" : items,
-    }
-    return render(request,"menu/index.html", context)
-    
+
+class IndexClassView(ListView):
+    model = Item
+    template_name = 'menu/index.html'
+    context_object_name = 'items'
 
 def detail(request, item_id):
     item = Item.objects.get(pk=item_id)
